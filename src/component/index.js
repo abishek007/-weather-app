@@ -50,6 +50,6 @@ const WeatherApp = (props) => {
 }
 
 export default Container(reduxForm({
-  form: "WEATHER_APP",
-  onSubmit: () => { },
-  })(WeatherApp))
+	form: "WEATHER_APP",
+	onSubmit: () => { },
+})(WeatherApp))
