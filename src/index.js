@@ -5,8 +5,8 @@ import WeatherApp from "./component"
 import store from "./container/store"
 
 ReactDOM.render(
-	<Provider store={store}>
-	  <WeatherApp />
-	</Provider>,
-	document.getElementById("root")
+  <Provider store={store}>
+    <WeatherApp />
+  </Provider>,
+  document.getElementById("root")
 )
