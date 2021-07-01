@@ -22,26 +22,26 @@ if ('serviceWorker' in navigator) {
 
     console.log('beforeinstallprompt fired', deferredPrompt)
 
-    document.querySelector('#install-button').disabled = false
+    document.querySelector('button').disabled = false
+
+    let btnInstall = document.querySelector('button')
+
+    btnInstall.addEventListener('click', () => {
+      // Update the install UI to remove the install button
+      document.querySelector('button').disabled = true;
+      // Show the modal add to home screen dialog
+      deferredPrompt.prompt();
+      // Wait for the user to respond to the prompt
+      deferredPrompt.userChoice.then((choice) => {
+        if (choice.outcome === 'accepted') {
+          console.log('User accepted the A2HS prompt');
+        } else {
+          console.log('User dismissed the A2HS prompt');
+        }
+        // Clear the saved prompt since it can't be used again
+        deferredPrompt = null;
+      });
+    });
 
   })
-
-  let btnInstall = document.querySelector('#install-button')
-
-  btnInstall.addEventListener('click', () => {
-    // Update the install UI to remove the install button
-    document.querySelector('#install-button').disabled = true;
-    // Show the modal add to home screen dialog
-    deferredPrompt.prompt();
-    // Wait for the user to respond to the prompt
-    deferredPrompt.userChoice.then((choice) => {
-      if (choice.outcome === 'accepted') {
-        console.log('User accepted the A2HS prompt');
-      } else {
-        console.log('User dismissed the A2HS prompt');
-      }
-      // Clear the saved prompt since it can't be used again
-      deferredPrompt = null;
-    });
-  });
 }
