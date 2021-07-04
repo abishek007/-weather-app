@@ -7,8 +7,7 @@ const WeatherApp = (props) => {
 
   return (
     <div className="weather-container">
-      <img className="img-sec" src="https://image.freepik.com/free-vector/weather-icons_23-2147513696.jpg" alt="weather"/>
-      <button id='#install-button'>Show prompt</button>
+      <img className="img-sec" src="https://miro.medium.com/max/560/1*bnT_p1TufQokvax_gcVT_g.png" alt="pwa"/>
     </div>
   )
 }
